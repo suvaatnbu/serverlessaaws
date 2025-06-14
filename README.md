@@ -44,3 +44,18 @@ def lambda_handler(event, context):
         for instance in reservation['Instances']:
             ec2.stop_instances(InstanceIds=[instance['InstanceId']])
 
+echo "# S3 Bucket Encryption Monitor
+
+This AWS Lambda function checks all S3 buckets in the account and reports which ones do not have server-side encryption enabled.
+
+## How it works
+- Uses Boto3 to list all S3 buckets
+- Checks for default server-side encryption
+- Logs unencrypted buckets to CloudWatch
+
+## Setup Instructions
+1. Create IAM role with AmazonS3ReadOnlyAccess
+2. Deploy this Lambda using Python 3.x
+3. Trigger manually to view logs
+
+" > README.md
